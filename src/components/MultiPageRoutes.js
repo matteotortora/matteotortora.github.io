@@ -9,7 +9,7 @@ export default function MultiPageRoutes() {
         <Routes>
             <Route exact path={'/'} element={<Home />} />
             <Route exact path={'/about'} element={<About />} />
-            <Route exact path={'/portfolio'} element={<Portfolio />} />
+            <Route exact path={'/portfolio'} element={<portfolio />} />
         </Routes>
     )
 }

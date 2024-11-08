@@ -14,21 +14,22 @@ const links = [
         active: 'home'
     },
     {
-        name: 'About Me',
-        to: 'about',
-        active: 'about'
-    },
-    {
         name: info.initials,
         type: 'initials',
         to: '',
         active: 'home'
     },
-    {
-        name: 'Portfolio',
-        to: 'portfolio',
-        active: 'portfolio'
-    }
+        {
+        name: 'About Me',
+        to: 'about',
+        active: 'about'
+    },
+
+    // {
+    //     name: 'pubblications',
+    //     to: 'portfolio',
+    //     active: 'portfolio'
+    // }
 ]
 
 // This function is used to create a scroll offset to compensate for the navbar
@@ -59,9 +60,9 @@ export default function Navbar({ darkMode, handleClick, active, setActive }) {
                         </Link>
                     </Box>
                 ))}
-                <li>
-                    <Toggler darkMode={darkMode} handleClick={handleClick} />
-                </li>
+                {/*<li>*/}
+                {/*    <Toggler darkMode={darkMode} handleClick={handleClick} />*/}
+                {/*</li>*/}
             </Box>
         </Box>
     )
