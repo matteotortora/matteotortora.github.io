@@ -1,5 +1,5 @@
 {
-  "homepage": "mtortora-ai.github.io",
+  "homepage": "https://mtortora-ai.github.io",
   "name": "portfolioTemplate",
   "version": "2.0.0",
   "private": true,
@@ -28,9 +28,9 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
