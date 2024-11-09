@@ -58,7 +58,7 @@ export const info = {
             label: 'scholar'
         },
         {
-            link: "https://github.com/mtortora-ai",
+            link: "https://github.com/matteotortora",
             icon: "fa fa-github",
             label: 'github'
         },
