@@ -1,6 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 @import "./variables.modules";
 
+.page-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0; // Spazio tra le sezioni
+  position: relative;
+  font-size: 1.2rem;
+  color: $dark;
+
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid $lightgray; // Colore del divisore
+    margin: 0 1rem;
+  }
+}
+
 
 body {
     font-family: 'Roboto', Helvetica, sans-serif;

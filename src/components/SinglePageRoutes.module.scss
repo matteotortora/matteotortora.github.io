@@ -1,0 +1,21 @@
+@import "../variables.modules";
+
+// SinglePageRoutes.module.scss
+.pageDivider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; // Grassetto
+    font-size: 32px; // Dimensione del font
+    color: $dark; // Colore del testo, sostituisci con il colore preferito
+
+    &:before,
+    &:after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid $lightgray; // Colore della linea
+        margin: 0 1rem;
+    }
+}

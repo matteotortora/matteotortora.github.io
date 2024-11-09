@@ -16,7 +16,7 @@ i {
   }
 }
 
-.terminal {
+.card {
   p, li {
     margin: 1rem 0;
     color: $white;
@@ -26,6 +26,13 @@ i {
     animation: changeColors 3s infinite;
     font-weight: bold;
   }
+}
+//
+.cardImage {
+    width: 300px;        /* Larghezza fissa */
+    height: auto;        /* Altezza proporzionale */
+    object-fit: contain; /* Mantiene le proporzioni dell'immagine */
+    max-height: 100%;    /* Impedisce che l'immagine si estenda oltre */
 }
 
 @keyframes changeColors {

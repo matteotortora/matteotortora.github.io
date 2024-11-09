@@ -43,6 +43,10 @@ export const info = {
             text: "Assistant Professor at UNIGE"
         },
         {
+            emoji: '🎓',
+            text: 'PhD in Biomedical Engineering at UCBM'
+        },
+        {
             emoji: "📧",
             text: "matteo.tortora@unige.it"
         }
@@ -59,10 +63,11 @@ export const info = {
             label: 'github'
         },
         {
-            link: "www.linkedin.com/in/matteotortora",
+            link: "https://www.linkedin.com/in/matteotortora/",
             icon: "fa fa-linkedin",
             label: 'linkedin'
         },
+
 
 // Feel free to remove any of these that you don't have. I'll write an FAQ on how to add new ones later, let me know if you have a request for an icon!
 // Just change the links so that they lead to your social profiles.

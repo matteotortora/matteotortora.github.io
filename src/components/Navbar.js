@@ -13,23 +13,22 @@ const links = [
         to: '',
         active: 'home'
     },
+        {
+        name: 'About Me',
+        to: 'about',
+        active: 'about'
+    },
     {
         name: info.initials,
         type: 'initials',
         to: '',
         active: 'home'
     },
-        {
-        name: 'About Me',
-        to: 'about',
-        active: 'about'
+    {
+        name: 'Publications',
+        to: 'publications',
+        active: 'publications'
     },
-
-    // {
-    //     name: 'pubblications',
-    //     to: 'portfolio',
-    //     active: 'portfolio'
-    // }
 ]
 
 // This function is used to create a scroll offset to compensate for the navbar
