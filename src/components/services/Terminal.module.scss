@@ -1,0 +1,44 @@
+@import "../../variables.modules";
+
+i {
+  padding-left: 0.5rem;
+
+  &.red {
+    color: $red;
+  }
+
+  &.amber {
+    color: $yellow;
+  }
+
+  &.green {
+    color: $green;
+  }
+}
+
+.terminal {
+  p, li {
+    margin: 1rem 0;
+    color: #1f1f1f;
+  }
+
+  a, a:visited {
+    animation: changeColors 3s infinite;
+    font-weight: bold;
+  }
+}
+
+@keyframes changeColors {
+  0% {
+    color: #793eee;
+  }
+  33.3% {
+    color: #793eee;
+  }
+  66.6% {
+    color: #793eee;
+  }
+  100% {
+    color: #793eee;
+  }
+}

@@ -24,6 +24,12 @@ const links = [
         to: '',
         active: 'home'
     },
+
+    {
+        name: 'Services',
+        to: 'services',
+        active: 'services'
+    },
     {
         name: 'Publications',
         to: 'publications',

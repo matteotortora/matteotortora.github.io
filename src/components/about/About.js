@@ -93,28 +93,6 @@ export default function About({innerRef}) {
                         </a>: B.Sc. in Biomedical Engineering at UCBM
                     </li>
                 </ul>
-
-                <p style={{color: "#1f1f1f", fontFamily: "RobotoRegular, sans-serif", fontSize: "17px"}}>
-                    💪 <strong>Services:</strong> I contribute as a reviewer to the following journals:
-                    Artificial Intelligence in Medicine, Breast Cancer Research and Treatment, Computational and
-                    Structural Biotechnology Journal,
-                    Computer Methods and Programs in Biomedicine, Expert Systems with Applications, International
-                    Journal of Transportation Science and Technology,
-                    Mathematical Biosciences and Engineering, Medical Physics, World Journal of Surgical Oncology.
-                </p>
-                <p style={{color: "#1f1f1f", fontFamily: "RobotoRegular, sans-serif", fontSize: "17px"}}>
-                    I also contribute as a reviewer to the following conferences:
-                    ACM Conference on Bioinformatics, Computational Biology, and Health Informatics,
-                    IEEE Conference on Artificial Intelligence (CAI), IEEE International Conference on Healthcare
-                    Informatics,
-                    IEEE World Congress on Computational Intelligence
-
-                </p>
-                <p style={{color: "#1f1f1f", fontFamily: "RobotoRegular, sans-serif", fontSize: "17px"}}>
-                    I also co-organize the following workshops:
-                    Generative Artificial Intelligence for Biomedical Application at the International Symposium
-                    on Computer-Based Medical Systems 2025.
-                </p>
             </>
         );
     }

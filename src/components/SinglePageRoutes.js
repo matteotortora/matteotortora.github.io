@@ -1,6 +1,7 @@
 import Home from "./home/Home";
 import About from "./about/About";
 import Portfolio from "./portfolio/Portfolio";
+import Services from "./services/Services";
 import Publications from "./publications/Publications";
 import React from 'react';
 import { Box } from "@mui/material";
@@ -25,6 +26,10 @@ export default function SinglePageRoutes({ refs }) {
             {/*    <span>Portfolio</span>*/}
             {/*</div>*/}
             {/*<Portfolio innerRef={refs.refPortfolio}/>*/}
+            <div className={styles.pageDivider}>
+                <span>Services</span>
+            </div>
+            <Services innerRef={refs.refServices}/>
             <div className={styles.pageDivider}>
                 <span>Publications</span>
             </div>

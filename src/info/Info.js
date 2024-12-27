@@ -48,7 +48,7 @@ export const info = {
         },
         {
             emoji: "📧",
-            text: "matteo.tortora@unige.it"
+            text: "matteo.tortora[at]unige[dot]it"
         }
     ],
     socials: [
