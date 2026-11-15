@@ -1,0 +1,101 @@
+{
+  "phd": {
+    "program": "National PhD in Artificial Intelligence — Health & Life Sciences",
+    "institution": "Università Campus Bio-Medico di Roma",
+    "candidates": [
+      {
+        "name": "Flavio Stucchi",
+        "period": "2026–2029",
+        "cycle": "XLII cycle",
+        "topics": [
+          "Virtual Human Twin",
+          "Agentic AI",
+          "Medical Imaging"
+        ]
+      },
+      {
+        "name": "Alessia D’Ercole",
+        "period": "2026–2029",
+        "cycle": "XLII cycle",
+        "topics": [
+          "Deepfake",
+          "Medical Imaging"
+        ]
+      },
+      {
+        "name": "Anna Bonifacio",
+        "period": "2025–2028",
+        "cycle": "XLI cycle",
+        "topics": [
+          "Agentic AI for Agriculture"
+        ]
+      },
+      {
+        "name": "Ludovica Pompilio",
+        "scholarUrl": "https://scholar.google.com/citations?user=fF5lJeUAAAAJ&hl=it&oi=ao",
+        "period": "2024–2027",
+        "cycle": "XL cycle",
+        "topics": [
+          "Deepfake",
+          "Medical Imaging"
+        ]
+      },
+      {
+        "name": "Irene Iele",
+        "scholarUrl": "https://scholar.google.com/citations?user=srLH7lkAAAAJ&hl=it&oi=ao",
+        "period": "2024–2027",
+        "cycle": "XL cycle",
+        "topics": [
+          "Remote Sensing",
+          "Test-Time Adaptation",
+          "Medical Imaging",
+          "Quantum Computing"
+        ]
+      }
+    ]
+  },
+  "mentoring": {
+    "intro": "Alongside my formal supervisory appointments, I have provided scientific mentoring to PhD researchers, a research fellow, and an Honors Program student.",
+    "phd": [
+      {
+        "name": "Domenico Paolo",
+        "period": "2023–2026",
+        "context": "National PhD in Artificial Intelligence, Università Campus Bio-Medico di Roma",
+        "profileUrl": "https://www.linkedin.com/in/domenicopaolo99/"
+      },
+      {
+        "name": "Leonardo Furia",
+        "period": "2023–2026",
+        "context": "National PhD in Artificial Intelligence, Università Campus Bio-Medico di Roma",
+        "profileUrl": "https://www.linkedin.com/in/leonardo-furia-91852a1ab/"
+      },
+      {
+        "name": "Massimiliano Mantegna",
+        "period": "2022–2025",
+        "context": "National PhD in Artificial Intelligence – Health & Life Sciences Area (XXXVIII cycle), Università Campus Bio-Medico di Roma",
+        "profileUrl": "https://www.linkedin.com/in/massimiliano-mantegna-b9138a1b9/"
+      }
+    ],
+    "other": [
+      {
+        "name": "Elena Mulero Ayllón",
+        "period": "2024–2026",
+        "context": "Research Fellow, Università Campus Bio-Medico di Roma",
+        "profileUrl": "https://scholar.google.com/citations?user=-BOMvaUAAAAJ&hl=it&oi=ao",
+        "profileLabel": "Google Scholar"
+      },
+      {
+        "name": "Alessandro Ferranti",
+        "period": "2023",
+        "context": "Honors Program, BSc in Industrial Engineering. Project: Development of SVM Classifier Model Applied to Plant Biology.",
+        "profileUrl": "https://www.linkedin.com/in/alessandro-ferranti/"
+      }
+    ]
+  },
+  "theses": {
+    "since": 2021,
+    "count": 12,
+    "topics": "Research topics include machine learning and deep learning, computer vision and medical image analysis, multimodal and generative AI, reinforcement learning, time-series forecasting, remote sensing, and intelligent sensing applications."
+  },
+  "intro": "I supervise doctoral research in artificial intelligence and mentor early-career researchers."
+}

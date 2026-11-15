@@ -1,0 +1,136 @@
+{
+  "intro": "I contribute to the scientific community through conference leadership, editorial activities, workshop and special session organization, doctoral assessment, and peer review.",
+  "groups": [
+    {
+      "id": "conference-leadership",
+      "title": "Conference Leadership",
+      "items": [
+        {
+          "role": "Program Chair",
+          "name": "IEEE International Symposium on Computer-Based Medical Systems (CBMS)",
+          "years": "2027",
+          "url": "https://2027.cbms-conference.org/committees"
+        }
+      ]
+    },
+    {
+      "id": "editorial-roles",
+      "title": "Editorial Roles",
+      "items": [
+        {
+          "role": "Lead Guest Editor",
+          "name": "Computerized Medical Imaging and Graphics (CMIG)",
+          "url": "https://www.sciencedirect.com/journal/computerized-medical-imaging-and-graphics",
+          "subject": "Generative Artificial Intelligence for Medical Imaging"
+        },
+        {
+          "role": "Editorial Board Member",
+          "name": "Discover Artificial Intelligence",
+          "context": "Springer Nature",
+          "years": "Sep 2026–present",
+          "url": "https://link.springer.com/journal/44163/editorial-board"
+        }
+      ]
+    },
+    {
+      "id": "workshop-organization",
+      "title": "Workshop and Special Session Organization",
+      "items": [
+        {
+          "role": "Organizer",
+          "name": "AI² in Healthcare: Artificial Intelligence Empowering Augmented Intelligence (AI²Health)",
+          "context": "Special Session, CIBB",
+          "years": "2026",
+          "url": "https://sites.google.com/view/ai2health-cibb26/home-page",
+          "italic": true
+        },
+        {
+          "role": "Lead Organizer",
+          "name": "Foundation Models in Medicine (FMM)",
+          "context": "Special Session, IJCNN",
+          "years": "2025",
+          "url": "https://sites.google.com/view/fmmedicine/home",
+          "italic": true
+        },
+        {
+          "role": "Lead Organizer",
+          "name": "Generative Artificial Intelligence for Biomedical Applications (GAI4BA)",
+          "context": "Workshop, IEEE CBMS",
+          "years": "2025",
+          "url": "https://sites.google.com/view/gai4ba/home",
+          "italic": true
+        }
+      ]
+    },
+    {
+      "id": "scientific-committees",
+      "title": "Scientific and Program Committees",
+      "items": [
+        {
+          "role": "Area Chair",
+          "name": "International Joint Conference on Neural Networks (IJCNN)",
+          "years": "2025, 2026, 2027"
+        },
+        {
+          "role": "Technical Program Committee Member",
+          "name": "IEEE International Symposium on Biomedical Imaging (ISBI)",
+          "years": "2026"
+        },
+        {
+          "role": "Technical Program Committee Member",
+          "name": "ETHICAIA Workshop, International Joint Conference on Artificial Intelligence (IJCAI)",
+          "years": "2026"
+        },
+        {
+          "role": "Award Committee Member",
+          "name": "IEEE International Symposium on Computer-Based Medical Systems (CBMS)",
+          "years": "2026"
+        }
+      ]
+    },
+    {
+      "id": "doctoral-assessment",
+      "title": "PhD Examination and Thesis Reviewing",
+      "items": [
+        {
+          "role": "PhD Final Examination Committee Member",
+          "name": "National PhD in Artificial Intelligence (Health and Life Sciences)",
+          "context": "Università Campus Bio-Medico di Roma",
+          "years": "2026",
+          "detail": "XXXVII and XXXVIII cycles (12th session)."
+        },
+        {
+          "role": "External PhD Thesis Reviewer",
+          "name": "National PhD in Artificial Intelligence (Health and Life Sciences)",
+          "context": "Università Campus Bio-Medico di Roma",
+          "years": "2026",
+          "detail": "XXXVIII cycle."
+        }
+      ]
+    }
+  ],
+  "peerReview": {
+    "journals": [
+      "Artificial Intelligence in Medicine",
+      "Expert Systems with Applications",
+      "IEEE Transactions on Smart Grid",
+      "Frontiers in Artificial Intelligence",
+      "Computerized Medical Imaging and Graphics",
+      "Journal of Modern Power Systems and Clean Energy",
+      "Breast Cancer Research and Treatment",
+      "Computational and Structural Biotechnology Journal",
+      "Computer Methods and Programs in Biomedicine",
+      "International Journal of Transportation Science and Technology",
+      "Mathematical Biosciences and Engineering",
+      "Medical Physics",
+      "World Journal of Surgical Oncology"
+    ],
+    "conferences": [
+      "ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (ACM-BCB)",
+      "IEEE Conference on Artificial Intelligence (CAI)",
+      "IEEE International Conference on Healthcare Informatics (ICHI)",
+      "IEEE World Congress on Computational Intelligence (WCCI)",
+      "IEEE PowerTech"
+    ]
+  }
+}

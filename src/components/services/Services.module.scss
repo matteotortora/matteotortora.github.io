@@ -1,27 +1,10 @@
-@import "../../variables.modules";
-
-.pink {
-  color: $pink;
-}
-
-.green {
-  color: $green;
-}
-
-.bioText {
-    color: #1f1f1f; /* Colore nero */
-    font-family: "RobotoRegular", sans-serif;
-    font-size: 17px;
-}
-
-.skills {
-  columns: 1;
-  @media only screen and (min-width: 940px) {
-    columns: 2;
-  }
-
-  li {
-    margin: 0;
-    line-height: 1.75;
-  }
-}
+.content { font-size: 17px; }
+.content .intro { margin: 0 0 1.5rem; }
+.group { margin-top: 1.75rem; }
+.heading { font-size: 1em; font-weight: 700; margin-bottom: 0.5rem; }
+.subheading { font-size: 1em; font-weight: 500; margin: 1rem 0 0.5rem; }
+.list { list-style: disc; padding-left: 1.25rem; }
+.content .list li { margin: 0.65rem 0; }
+.content a, .content a:visited { font-weight: 400; }
+.detail { display: block; margin-top: 0.2rem; }
+.years { font-weight: 500; }

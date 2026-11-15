@@ -1,5 +1,19 @@
 
 /node_modules
 /.idea
-/.idea
 /build
+/.DS_Store
+**/.DS_Store
+/dist
+/.env
+/.env.*
+!/.env.example
+*.log
+
+# Local context and maintenance notes
+/.local/
+/.codex/
+/.agents/
+AGENTS.md
+CONTEXT.md
+SITE_NOTES.md

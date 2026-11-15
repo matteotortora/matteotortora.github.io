@@ -1,49 +1,53 @@
-@import "../../variables.modules";
+@use "../../variables.modules" as *;
 
-h1 {
-  font-size: 2rem;
-  text-align: center;
-  @media only screen and (min-width: 940px) {
-    font-size: 3rem;
-    text-align: left;
-  }
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: calc(100% - 2rem);
+  max-width: 68rem;
+  min-height: calc(100svh - var(--navigation-height) - 3rem);
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  scroll-margin-top: calc(var(--navigation-height) + 1rem);
 }
-
-h2 {
-  font-size: 1.25rem;
-  text-align: center;
-  @media only screen and (min-width: 940px) {
-    font-size: 2rem;
-    text-align: left;
-  }
+.avatar {
+  width: min(65vw, 18rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 0.75rem;
+  flex-shrink: 0;
 }
-
-
+.profile { min-width: 0; max-width: 39rem; }
+.title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; text-align: center; }
+.subtitle { font-size: clamp(1.2rem, 2.4vw, 2rem); font-weight: 700; line-height: 1.4; text-align: center; margin-top: 0.5rem; }
+.miniBio {
+  padding: 1rem 0;
+  display: grid;
+  gap: 0.4rem;
+  overflow-wrap: anywhere;
+  a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+}
 .hand {
-  animation-name: wave;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
+  animation: wave 2.5s infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
-
-a {
-  color: $dark;
-  transition: color 200ms ease;
+@media (min-width: 56.25rem) {
+  .home { flex-direction: row; gap: 3rem; }
+  .avatar { width: min(32vw, 22rem); }
+  .title, .subtitle { text-align: left; }
 }
-
-a:hover {
-  color: $lightgray;
-  transition: color 200ms ease;
-}
-
 @keyframes wave {
-  0% { transform: rotate( 0.0deg) }
-  10% { transform: rotate(14.0deg) }
-  20% { transform: rotate(-8.0deg) }
-  30% { transform: rotate(14.0deg) }
-  40% { transform: rotate(-4.0deg) }
-  50% { transform: rotate(10.0deg) }
-  60% { transform: rotate( 0.0deg) }
-  100% { transform: rotate( 0.0deg) }
+  0% { transform: rotate(0); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60%, 100% { transform: rotate(0); }
 }

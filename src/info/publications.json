@@ -1,0 +1,214 @@
+[
+  {
+    "id": "sample-aware-tta-2026",
+    "title": "Sample-Aware Test-Time Adaptation for Medical Image-to-Image Translation",
+    "authors": "Irene Iele, Francesco Di Feola, Matteo Tortora, Rosa Sicilia, Valerio Guarrasi, Paolo Soda",
+    "venue": "Frontiers in Artificial Intelligence, 9, 1953730",
+    "year": 2026,
+    "status": "published",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.3389/frai.2026.1953730"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/Sample-Aware-TTA"
+      }
+    ],
+    "image": "sample-aware-tta",
+    "imageAlt": "Sample-aware test-time adaptation workflow with reconstruction feedback and a dynamic adaptation block."
+  },
+  {
+    "id": "multi-agent-tta-2026",
+    "title": "Multi-Agent Test-Time Adaptation for Robust Medical Image-to-Image Translation",
+    "authors": "Irene Iele, Francesco Di Feola, Paolo Soda, Rosa Sicilia, Matteo Tortora",
+    "venue": "MICCAI · LNCS 16890, pp. 302–311",
+    "year": 2026,
+    "status": "published",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://papers.miccai.org/miccai-2026/0680-Paper2376.html"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/Multi-Agent-TTA"
+      }
+    ],
+    "image": "multi-agent-tta",
+    "imageAlt": "Monitoring, selection, adaptation and predictor agents coordinating through a shared space."
+  },
+  {
+    "id": "vegsim-2026",
+    "title": "VegSim: A Geospatial World Model for Scenario-Conditioned Vegetation Simulation",
+    "authors": "Irene Iele, Elena Mulero Ayllón, Paolo Soda, Matteo Tortora",
+    "venue": "ACM SIGSPATIAL",
+    "year": 2026,
+    "status": "accepted",
+    "links": [
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/abs/2606.21961"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/vegsim"
+      }
+    ],
+    "image": "vegsim",
+    "imageAlt": "VegSim architecture combining historical, future-weather and spatial encoders, latent dynamics and a probabilistic decoder."
+  },
+  {
+    "id": "ndvi-forecasting-2026",
+    "title": "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates",
+    "authors": "Irene Iele, Giulia Romoli, Daniele Molino, Elena Mulero Ayllón, Filippo Ruffini, Paolo Soda, Matteo Tortora",
+    "venue": "ISSA Workshop · IEEE AVSS",
+    "year": 2026,
+    "status": "accepted",
+    "links": [
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/abs/2602.17683"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/ndvi-forecasting"
+      },
+      {
+        "label": "Workshop",
+        "url": "https://issa2026.wordpress.com/programm/"
+      }
+    ],
+    "image": "ndvi-forecasting",
+    "imageAlt": "Probabilistic NDVI forecasting architecture with separate history and future encoders, temporal masking and a quantile prediction head."
+  },
+  {
+    "id": "tumor-benchmark-2026",
+    "title": "Benchmarking Foundation Models for Tumor Segmentation across Multiple Cancer Types",
+    "authors": "Matteo Tortora, Elena Mulero Ayllón, Filippo Ruffini, Valerio Guarrasi, Paolo Soda",
+    "venue": "Scientific Reports, 16, 29313",
+    "year": 2026,
+    "status": "published",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1038/s41598-026-71014-2"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/tumor_benchmarking"
+      }
+    ],
+    "image": "tumor-benchmark",
+    "imageAlt": "Comparison of MedSAM and Medical SAM 2 robustness indices under bounding-box prompt perturbations."
+  },
+  {
+    "id": "virtual-treatment-2026",
+    "title": "Virtual Treatment for Radiotherapy: Multimodal Generative Prediction of Longitudinal NSCLC Tumor Progression",
+    "authors": "Massimiliano Mantegna, Elena Mulero Ayllón, Alice Natalina Caragliano, Francesco Di Feola, Claudia Tacconi, Michele Fiore, Edy Ippolito, Carlo Greco, Sara Ramella, Philippe C. Cattin, Matteo Tortora, Valerio Guarrasi, Paolo Soda",
+    "venue": "Computerized Medical Imaging and Graphics, 132, 102774",
+    "year": 2026,
+    "status": "published",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1016/j.compmedimag.2026.102774"
+      }
+    ],
+    "image": "virtual-treatment",
+    "imageAlt": "Virtual Treatment framework showing multimodal inputs, generative training and longitudinal CT prediction."
+  },
+  {
+    "id": "matnet-2026",
+    "title": "MATNet: Multi-Level Fusion Transformer-Based Model for Day-Ahead PV Generation Forecasting",
+    "authors": "Matteo Tortora, Francesco Conte, Gianluca Natrella, Paolo Soda",
+    "venue": "Frontiers in Artificial Intelligence, 9, 1891798",
+    "year": 2026,
+    "status": "published",
+    "image": "matnet",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.3389/frai.2026.1891798"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/MATNet"
+      }
+    ]
+  },
+  {
+    "id": "vmambax-2026",
+    "title": "Context-Gated Cross-Modal Perception with Visual MAMBA for PET-CT Lung Tumor Segmentation",
+    "authors": "Elena Mulero Ayllón, Linlin Shen, Pierangelo Veltri, Fabrizia Gelardi, Arturo Chiti, Paolo Soda, Matteo Tortora",
+    "venue": "IEEE ISBI, pp. 1–4",
+    "year": 2026,
+    "status": "published",
+    "image": "vmambax",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1109/ISBI61048.2026.11515799"
+      },
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/abs/2510.27508"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/arco-group/vMambaX"
+      }
+    ]
+  },
+  {
+    "id": "hybrid-quantum-forecasting-2026",
+    "title": "Hybrid Quantum Neural Network for Multivariate Clinical Time Series Forecasting",
+    "authors": "Irene Iele, Floriano Caprio, Paolo Soda, Matteo Tortora",
+    "venue": "IEEE CBMS, pp. 182–187",
+    "year": 2026,
+    "status": "published",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1109/CBMS69103.2026.00041"
+      },
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/abs/2603.08072"
+      }
+    ],
+    "image": "hybrid-quantum-forecasting",
+    "imageAlt": "Hybrid GRU and variational quantum circuit architecture for forecasting physiological time series."
+  },
+  {
+    "id": "foundation-models-lung-2025",
+    "title": "Can Foundation Models Really Segment Tumors? A Benchmarking Odyssey in Lung CT Imaging",
+    "authors": "Elena Mulero Ayllón, Massimiliano Mantegna, Linlin Shen, Paolo Soda, Valerio Guarrasi, Matteo Tortora",
+    "venue": "IEEE CBMS, pp. 375–380",
+    "year": 2025,
+    "status": "published",
+    "image": "foundation-models-lung",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1109/CBMS65348.2025.00083"
+      }
+    ]
+  },
+  {
+    "id": "radiopathomics-2023",
+    "title": "RadioPathomics: Multimodal Learning in Non-Small Cell Lung Cancer for Adaptive Radiotherapy",
+    "authors": "Matteo Tortora, Ermanno Cordelli, Rosa Sicilia, Lorenzo Nibid, Edy Ippolito, Giuseppe Perrone, Sara Ramella, Paolo Soda",
+    "venue": "IEEE Access, 11, pp. 47563–47578",
+    "year": 2023,
+    "status": "published",
+    "image": "radiopathomics",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1109/ACCESS.2023.3275126"
+      }
+    ]
+  }
+]

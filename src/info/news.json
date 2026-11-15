@@ -1,0 +1,90 @@
+[
+  {
+    "id": "sample-aware-publication",
+    "date": "2026-11",
+    "emoji": "📄",
+    "content": [
+      "Our paper ",
+      {
+        "publicationId": "sample-aware-tta-2026",
+        "italic": true
+      },
+      " is now published in Frontiers in Artificial Intelligence."
+    ]
+  },
+  {
+    "id": "vegsim-sigspatial-2026",
+    "date": "2026-11",
+    "emoji": "🛰️",
+    "content": [
+      "Our paper ",
+      {
+        "publicationId": "vegsim-2026",
+        "italic": true
+      },
+      " will be presented at ",
+      {
+        "text": "ACM SIGSPATIAL 2026",
+        "url": "https://sigspatial2026.sigspatial.org/"
+      },
+      " in Riverside, California."
+    ]
+  },
+  {
+    "id": "gridfm-2026",
+    "date": "2026-10",
+    "emoji": "⚡",
+    "content": [
+      "I presented our poster ",
+      {
+        "text": "AI-Assisted Stability and Sensitivity Analysis of Converter-Dominated Power Systems",
+        "italic": true
+      },
+      " at ",
+      {
+        "text": "GridFM 2026",
+        "url": "https://gridfm.org/"
+      },
+      " in Porto, Portugal (29–30 October)."
+    ]
+  },
+  {
+    "id": "miccai-2026",
+    "date": "2026-09",
+    "emoji": "🧠",
+    "content": [
+      "Our paper ",
+      {
+        "publicationId": "multi-agent-tta-2026",
+        "italic": true
+      },
+      " is part of MICCAI 2026."
+    ]
+  },
+  {
+    "id": "tumor-benchmark-publication",
+    "date": "2026-09",
+    "emoji": "🔬",
+    "content": [
+      "Our paper ",
+      {
+        "publicationId": "tumor-benchmark-2026",
+        "italic": true
+      },
+      " is now published in Scientific Reports."
+    ]
+  },
+  {
+    "id": "matnet-publication",
+    "date": "2026-07",
+    "emoji": "☀️",
+    "content": [
+      "Our paper ",
+      {
+        "publicationId": "matnet-2026",
+        "italic": true
+      },
+      " is now published in Frontiers in Artificial Intelligence."
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "name": "Matteo Tortora",
+  "title": "Matteo Tortora",
+  "description": "Matteo Tortora, Assistant Professor at the University of Genoa. Multimodal AI, generative and foundation models for health, Earth observation and energy.",
+  "url": "https://matteotortora.github.io/",
+  "language": "en",
+  "jobTitle": "Assistant Professor",
+  "affiliation": {
+    "name": "University of Genoa",
+    "url": "https://unige.it/"
+  },
+  "socialImage": "/social-card.png",
+  "socialImageAlt": "Matteo Tortora, University of Genoa. Multimodal and Generative AI for health, Earth observation and energy systems.",
+  "socialHeadline": [
+    "Multimodal &",
+    "Generative AI"
+  ],
+  "socialDomains": "Health · Earth observation · Energy systems",
+  "profiles": [
+    "https://scholar.google.com/citations?user=3WpZse0AAAAJ",
+    "https://github.com/matteotortora",
+    "https://www.linkedin.com/in/matteotortora/",
+    "https://orcid.org/0000-0002-3932-7380"
+  ]
+}

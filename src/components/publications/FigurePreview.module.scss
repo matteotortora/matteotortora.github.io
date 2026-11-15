@@ -1,0 +1,73 @@
+.trigger {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 20rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  background: transparent;
+  color: #6330c4;
+  cursor: zoom-in;
+  &:focus-visible { outline-color: #6330c4; }
+  &:hover .zoomIcon, &:focus-visible .zoomIcon { opacity: 1; transform: scale(1); }
+}
+.preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: 15rem;
+  object-fit: contain;
+}
+.zoomIcon {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+  svg { width: 1.5rem; height: 1.5rem; }
+}
+.header { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.25rem; }
+.title { flex: 1; margin: 0; font-size: 1rem; line-height: 1.5; font-weight: 700; }
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.4rem;
+  background: var(--header-bg);
+  color: inherit;
+  font: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.body { display: flex; justify-content: center; min-width: 0; min-height: 0; padding: 0 1.25rem 1.25rem; overflow: auto; }
+.expanded {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 12rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 0.25rem;
+}
+@media (hover: none) {
+  .zoomIcon { opacity: 1; transform: none; }
+}

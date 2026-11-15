@@ -1,0 +1,35 @@
+import React from 'react';
+import Style from './Home.module.scss';
+import me from '../../img/self.png';
+import classNames from 'classnames';
+import EmojiBullet from './EmojiBullet';
+import SocialIcon from './SocialIcon';
+import { Box } from '@mui/material';
+import { info } from '../../info/Info';
+
+export default function Home({ innerRef }) {
+    return (
+        <section ref={innerRef} id="home" tabIndex={-1} aria-labelledby="home-title" className={Style.home}>
+            <img className={classNames(Style.avatar, Style.shadowed)}
+                 alt={`${info.firstName} ${info.lastName}`} src={me}
+                 width="1084" height="1080" style={{ background: info.gradient }} />
+            <div className={Style.profile}>
+                <h1 id="home-title" className={Style.title}>
+                    Hi, I'm <span style={{ background: info.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{info.firstName}</span>
+                    <span className={Style.hand} aria-hidden="true">🤚</span>
+                </h1>
+                <p className={Style.subtitle}>I'm {info.position}</p>
+                <ul className={Style.miniBio}>
+                    {info.miniBio.map((bio, index) => (
+                        <EmojiBullet key={index} emoji={bio.emoji} text={bio.text} link={bio.link} />
+                    ))}
+                </ul>
+                <Box display="flex" gap="1.5rem" justifyContent="center" fontSize={{ xs: '2rem', md: '2.5rem' }}>
+                    {info.socials.map((social, index) => (
+                        <SocialIcon key={index} link={social.link} icon={social.icon} image={social.image} label={social.label} />
+                    ))}
+                </Box>
+            </div>
+        </section>
+    );
+}

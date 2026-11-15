@@ -1,51 +1,49 @@
-@import "../../variables.modules";
-
-i {
-  padding-left: 0.5rem;
-
-  &.red {
-    color: $red;
-  }
-
-  &.amber {
-    color: $yellow;
-  }
-
-  &.green {
-    color: $green;
-  }
-}
-
 .card {
-  p, li {
-    margin: 1rem 0;
-    color: $white;
-  }
-
-  a, a:visited {
-    animation: changeColors 3s infinite;
-    font-weight: bold;
-  }
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.65rem;
+  box-shadow: var(--card-shadow);
+  background: var(--surface-bg);
+  transition: background-color 180ms ease;
+  scroll-margin-top: calc(var(--navigation-height) + 1rem);
+  &:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 4px; }
 }
-//
-.cardImage {
-    width: 300px;        /* Larghezza fissa */
-    height: auto;        /* Altezza proporzionale */
-    object-fit: contain; /* Mantiene le proporzioni dell'immagine */
-    max-height: 100%;    /* Impedisce che l'immagine si estenda oltre */
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  min-width: 0;
+  background: #fff;
+  border-radius: 0.6rem 0.6rem 0 0;
 }
-
-@keyframes changeColors {
-  0% {
-    color: #793eee;
-  }
-  33.3% {
-    color: #793eee;
-  }
-  66.6% {
-    color: #793eee;
-  }
-  100% {
-    color: #793eee;
-  }
+.content { min-width: 0; padding: 1.25rem; overflow-wrap: anywhere; }
+.venue { margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+.status {
+  display: inline-block;
+  margin-left: 0.65rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.3rem;
+  color: var(--link-color);
+}
+.title { font-size: 1.125rem; font-weight: 700; line-height: 1.45; }
+.authors { margin-top: 0.75rem; font-size: 1rem; line-height: 1.6; color: inherit; opacity: 0.85; }
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--link-color); font-weight: 700; line-height: 1.4; }
+}
+@media (min-width: 48rem) {
+  .card { grid-template-columns: minmax(12rem, 30%) minmax(0, 1fr); }
+  .textOnly { grid-template-columns: minmax(0, 1fr); }
+  .content { padding: 1.5rem; }
+  .imageContainer { border-radius: 0.6rem 0 0 0.6rem; }
 }

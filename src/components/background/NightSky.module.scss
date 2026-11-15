@@ -1,0 +1,49 @@
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 95% 75%, rgba(36, 105, 111, 0.12), transparent 45%),
+    radial-gradient(ellipse at 8% 22%, rgba(98, 65, 140, 0.09), transparent 35%);
+  animation: reveal 800ms ease both;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(17, 23, 33, 0.3) 28%, rgba(17, 23, 33, 0.4) 55%, transparent);
+  }
+}
+.stars { position: absolute; inset: 0; width: 100%; height: 100%; }
+.globe {
+  position: absolute;
+  width: clamp(26rem, 44vw, 44rem);
+  aspect-ratio: 1;
+  right: clamp(-9rem, -10vw, -4rem);
+  bottom: clamp(-5rem, -6vh, -2rem);
+  transition: opacity 300ms ease;
+}
+.motionControl {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: rgba(17, 23, 33, 0.8);
+  color: #b7c9d6;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: opacity 160ms ease;
+  &:hover, &:focus-visible { opacity: 1; }
+  svg { width: 1.2rem; height: 1.2rem; }
+}
+@media (max-width: 48rem) {
+  .globe { width: 20rem; right: -7rem; bottom: 5rem; }
+}
+@keyframes reveal { from { opacity: 0; } to { opacity: 1; } }

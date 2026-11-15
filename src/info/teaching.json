@@ -1,0 +1,76 @@
+{
+  "intro": "My teaching covers artificial intelligence, deep learning, computer vision, and computer science at undergraduate and graduate levels.",
+  "current": {
+    "institution": "Università Campus Bio-Medico di Roma",
+    "courses": [
+      {
+        "period": "2026–present",
+        "title": "Fundamentals of Artificial Intelligence: Development Tools and Methods",
+        "credits": 15,
+        "program": "MSc in Intelligent Systems Engineering"
+      },
+      {
+        "period": "2025–present",
+        "title": "Deep Learning",
+        "credits": 6,
+        "program": "MSc in Intelligent Systems Engineering"
+      },
+      {
+        "period": "2025–present",
+        "title": "Informatics",
+        "moduleOf": "Physics, Statistics, and Informatics",
+        "integratedCredits": 6,
+        "program": "BSc in Physiotherapy"
+      },
+      {
+        "period": "2025–present",
+        "title": "Informatics",
+        "moduleOf": "Mathematical, Physical, and Computer Sciences",
+        "integratedCredits": 6,
+        "program": "BSc in Medical Imaging and Radiotherapy Techniques"
+      }
+    ]
+  },
+  "previous": [
+    {
+      "period": "2024–2025",
+      "title": "Fundamentals of Artificial Intelligence: Development Tools and Methods",
+      "credits": 15,
+      "program": "MSc in Intelligent Systems Engineering",
+      "role": "Teaching Assistant",
+      "institution": "Università Campus Bio-Medico di Roma"
+    },
+    {
+      "period": "2021–2025",
+      "title": "Artificial Intelligence",
+      "credits": 5,
+      "program": "BSc in Digital Engineering",
+      "role": "Course Instructor",
+      "institution": "Politecnico di Milano–ELIS"
+    },
+    {
+      "period": "2021–2024",
+      "title": "Computer Vision",
+      "credits": 9,
+      "program": "MSc in Intelligent Systems Engineering",
+      "role": "Teaching Assistant",
+      "institution": "Università Campus Bio-Medico di Roma"
+    },
+    {
+      "period": "2021–2024",
+      "title": "Fundamentals of Artificial Intelligence",
+      "credits": 9,
+      "program": "MSc in Intelligent Systems Engineering",
+      "role": "Teaching Assistant",
+      "institution": "Università Campus Bio-Medico di Roma"
+    },
+    {
+      "period": "2020–2022",
+      "title": "Fundamentals of Computer Science and C++",
+      "credits": 10,
+      "program": "BSc in Computer Science – Digital Engineering program",
+      "role": "Teaching Assistant",
+      "institution": "Politecnico di Milano–ELIS"
+    }
+  ]
+}

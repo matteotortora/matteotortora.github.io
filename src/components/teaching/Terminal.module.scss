@@ -1,0 +1,11 @@
+@use "../../variables.modules" as *;
+
+.terminal {
+  background: var(--surface-bg);
+  color: var(--text-color);
+  box-shadow: var(--card-shadow);
+  transition: background-color 180ms ease;
+  p, li { margin: 1rem 0; color: inherit; }
+  a, a:visited { color: var(--link-color); font-weight: bold; }
+  a:hover { color: var(--link-hover); }
+}

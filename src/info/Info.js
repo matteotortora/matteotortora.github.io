@@ -1,35 +1,14 @@
-import self from "../img/self.png"
+export const colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
 
-/* Hi there! Thanks for checking out my portfolio template. Be sure to read the comments to get a better understanding of
-how to make this template work best for you! */
-
-export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
-/*
-I highly recommend using a gradient generator like https://gradientgenerator.paytonpierce.dev/ to generate a pair of colors that you like.
-These colors will be used to style your name on the homepage, the background of your picture, and some other accents throughout
-the site.
- */
-
-/* 
-This variable will change the layout of the website from multipage to single, scrollable page
-*/
-export let singlePage = true;
-
-/*
-So let's get started! Some of the info below is pretty self-explanatory, like 'firstName' and 'bio'. I'll try to explain anything
-that might not be obvious right off the bat :) I recommend looking at the template example live using "npm start" to get an idea
-of what each of the values mean.
- */
+export const singlePage = true;
 
 export const info = {
     firstName: "Matteo",
     lastName: "Tortora",
-    initials: "MT", // the example uses first and last, but feel free to use three or more if you like.
+    initials: "MT",
     position: "an Assistant Professor in AI",
-    selfPortrait: self, // don't change this unless you want to name your self-portrait in the "img" folder something else!
-    gradient: `-webkit-linear-gradient(135deg, ${colors})`, // don't change this either
-    baseColor: colors[0],
-    miniBio: [ // these are just some "tidbits" about yourself. You can look at mine https://paytonjewell.github.io/#/ for an example if you'd like
+    gradient: `-webkit-linear-gradient(135deg, ${colors})`,
+    miniBio: [
         {
             emoji: '👨‍🏫',
             text: 'AI Researcher',
@@ -44,14 +23,19 @@ export const info = {
         },
         {
             emoji: '🎓',
-            text: 'PhD in Biomedical Engineering at UCBM'
+            text: 'PhD focused on AI at UCBM'
         },
         {
             emoji: "📧",
-            text: "matteo.tortora[at]unige[dot]it"
+            text: "matteo.tortora [at] unige [dot] it"
         }
     ],
     socials: [
+        {
+            link: "https://orcid.org/0000-0002-3932-7380",
+            image: "/orcid.svg",
+            label: 'ORCID'
+        },
         {
             link: "https://scholar.google.com/citations?user=3WpZse0AAAAJ&hl=it&oi=ao",
             icon: "fa fa-graduation-cap",
@@ -68,20 +52,5 @@ export const info = {
             label: 'linkedin'
         },
 
-
-// Feel free to remove any of these that you don't have. I'll write an FAQ on how to add new ones later, let me know if you have a request for an icon!
-// Just change the links so that they lead to your social profiles.
-
     ],
-    portfolio: [ // This is where your portfolio projects will be detailed
-
-    ],
-    publications: [
-        {
-            title: "Title of the Publication 1",
-            journal: "Journal Name or Conference",
-            year: "2023",
-            link: "https://linktopublication1.com"
-        },
-    ]
-}
+};

@@ -1,0 +1,26 @@
+.content { font-size: 17px; }
+.content .intro { margin: 0 0 1.5rem; }
+.group + .group { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color); }
+.heading { font-size: 1.1em; font-weight: 700; margin-bottom: 0.5rem; }
+.subheading { font-size: 1em; font-weight: 700; margin-top: 1.5rem; }
+.content p { margin: 0.65rem 0; }
+.entries { list-style: none; padding: 0; }
+.content .entries li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1rem; margin: 1.1rem 0; }
+.period { font-size: 0.94em; font-weight: 500; padding-top: 0.1rem; }
+.detail { display: block; margin-top: 0.15rem; }
+.disclosure { margin-top: 1.5rem; }
+.disclosure summary {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.5rem 0;
+  min-height: 2.75rem;
+  font-weight: 700;
+  color: var(--link-color);
+  cursor: pointer;
+  &:hover { color: var(--link-hover); }
+}
+.disclosure[open] summary { margin-bottom: 0.75rem; }
+@media (max-width: 40rem) {
+  .content .entries li { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; margin: 1.35rem 0; }
+  .period { padding-top: 0; }
+}

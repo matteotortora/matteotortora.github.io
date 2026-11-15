@@ -1,27 +1,18 @@
-@import "../../variables.modules";
-
-.pink {
-  color: $pink;
+.content { font-size: 17px; }
+.emoji { display: inline-block; margin-inline-end: 0.45rem; font-size: 1.15em; line-height: 1; }
+.content .intro { margin: 0 0 1.75rem; }
+.heading { font-size: 1.1em; font-weight: 700; margin-bottom: 0.65rem; }
+.content p { margin: 0.65rem 0; }
+.areas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.75rem;
 }
-
-.green {
-  color: $green;
-}
-
-.bioText {
-    color: #1f1f1f; /* Colore nero */
-    font-family: "RobotoRegular", sans-serif;
-    font-size: 17px;
-}
-
-.skills {
-  columns: 1;
-  @media only screen and (min-width: 940px) {
-    columns: 2;
-  }
-
-  li {
-    margin: 0;
-    line-height: 1.75;
-  }
+.area { min-width: 0; }
+.areaHeading { font-size: 1em; font-weight: 700; line-height: 1.5; margin-bottom: 0.65rem; }
+.content .area p { margin: 0; }
+.background { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
+@media (max-width: 59.999rem) {
+  .areas { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
 }

@@ -1,0 +1,25 @@
+{
+  "intro": "I’m an Assistant Professor at the University of Genoa, in the Department of Naval, Electrical, Electronics and Telecommunications Engineering (DITEN).",
+  "research": "I develop multimodal and generative AI methods to integrate heterogeneous data, adapt models to changing conditions, and forecast complex systems. My research connects medical images, satellite observations, environmental data, and time series across three application areas.",
+  "areas": [
+    {
+      "id": "healthcare",
+      "emoji": "🩺",
+      "title": "AI for Healthcare",
+      "description": "I develop multimodal and generative models for medical image analysis and precision medicine. My work includes tumor segmentation, image-to-image translation, and longitudinal modeling of disease and treatment response."
+    },
+    {
+      "id": "earth-observation",
+      "emoji": "🛰️",
+      "title": "AI for Earth Observation",
+      "description": "I combine satellite observations and weather data to model environmental dynamics. My research focuses on probabilistic forecasting and scenario-conditioned simulation of vegetation, with an emphasis on sparse observations and generalization across regions."
+    },
+    {
+      "id": "energy",
+      "emoji": "⚡",
+      "title": "AI for Energy",
+      "description": "I apply AI to forecasting and modeling in energy systems, including photovoltaic generation and power-grid dynamics. I also work on modeling and co-simulation of integrated multi-energy systems for port applications and electric mobility."
+    }
+  ],
+  "background": "I hold an MSc in Biomedical Engineering with honors and a PhD in Bioengineering and Biosciences from Università Campus Bio-Medico di Roma (UCBM), where my doctoral research explored multimodal deep learning. My background also includes a PostDoc at UCBM focusing on AI for precision medicine."
+}
