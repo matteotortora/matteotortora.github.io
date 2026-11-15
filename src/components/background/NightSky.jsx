@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createOrbitalScene } from './orbital-scene.mjs';
 import Style from './NightSky.module.scss';
+import BackgroundMotionControl from './BackgroundMotionControl';
 
-export default function NightSky() {
+export default function NightSky({paused,onTogglePause}) {
     const root = useRef(null);
     const stars = useRef(null);
     const globe = useRef(null);
     const scene = useRef(null);
-    const [paused, setPaused] = useState(false);
     const [showControl, setShowControl] = useState(false);
 
     useEffect(() => {
@@ -23,20 +23,11 @@ export default function NightSky() {
 
     return (
         <>
-            <div ref={root} className={Style.scene} aria-hidden="true" data-motion="loading">
+            <div ref={root} className={Style.scene} aria-hidden="true" data-motion="loading" data-background="orbital">
                 <canvas ref={stars} className={Style.stars} />
                 <canvas ref={globe} className={Style.globe} />
             </div>
-            {showControl && (
-                <button type="button" className={Style.motionControl} aria-pressed={paused}
-                        aria-label={paused ? 'Resume background animation' : 'Pause background animation'}
-                        title={paused ? 'Resume background animation' : 'Pause background animation'}
-                        onClick={() => setPaused(value => !value)}>
-                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                        {paused ? <path d="m9 5 11 7-11 7z" /> : <path d="M7 5h3v14H7zm7 0h3v14h-3z" />}
-                    </svg>
-                </button>
-            )}
+            <BackgroundMotionControl visible={showControl} paused={paused} onToggle={onTogglePause}/>
         </>
     );
 }

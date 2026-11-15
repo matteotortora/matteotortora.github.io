@@ -9,7 +9,7 @@ import site from '../info/site.json';
 import SinglePageRoutes from './SinglePageRoutes';
 import useScrollObserver from '../hooks/useScrollObserver';
 import { initializeTheme, applyTheme, saveTheme } from '../theme.mjs';
-import NightSkyBoundary from './background/NightSkyBoundary';
+import BackgroundSceneBoundary from './background/BackgroundSceneBoundary';
 
 export default function BaseLayout() {
    const location = useLocation()
@@ -25,6 +25,7 @@ export default function BaseLayout() {
    const refPublications = useScrollObserver(setActive);
    const [darkMode, setDarkMode] = useState(false);
    const [themeReady, setThemeReady] = useState(false);
+   const [backgroundPaused, setBackgroundPaused] = useState(false);
 
    useEffect(() => {
       setDarkMode(initializeTheme() === 'dark');
@@ -65,7 +66,8 @@ export default function BaseLayout() {
    return (
       <Box className={Style.layout}>
          <a className="skip-link" href="#main-content">Skip to content</a>
-         {darkMode && <NightSkyBoundary />}
+         {themeReady && <BackgroundSceneBoundary darkMode={darkMode} paused={backgroundPaused}
+            onTogglePause={() => setBackgroundPaused(value => !value)} />}
          <Grid container className={Style.content} display={'flex'} flexDirection={'column'} minHeight={'100vh'}
             justifyContent={'space-between'}>
             <Grid item>

@@ -1,15 +1,10 @@
 import { geoGraticule, geoOrthographic, geoPath } from 'd3-geo';
 import land from '../../data/earth-land.json';
-import { homeVisibility, motionState } from './scene-settings.mjs';
+import { ORBITS, homeVisibility, motionState } from './scene-settings.mjs';
+import { observationPass } from './observation-pass.mjs';
 
 const TAU = Math.PI * 2;
 const GRATICULE = geoGraticule().step([30, 30]).precision(6)();
-const ORBITS = [
-    { tilt: -0.5, ratio: 0.48, period: 90, phase: 0.65, color: '#94ddca' },
-    { tilt: 0.82, ratio: 0.63, period: 125, phase: 3.9, color: '#ac9ad4' },
-    { tilt: -1.05, ratio: 0.78, period: 155, phase: 3.45, color: '#a3c9dd' },
-    { tilt: 0.25, ratio: 0.86, period: 180, phase: 4.05, color: '#bdc7a6' },
-];
 
 function starField(width, height, compact) {
     let seed = 24681;
@@ -83,9 +78,44 @@ function drawOrbit(context, orbit, center, radius, front, seconds) {
     context.restore();
 }
 
-function drawGlobe(context, size, seconds, pointer) {
+function traceObservation(context, points, center, radius, close = false) {
+    context.beginPath();
+    points.forEach((point, index) => {
+        const x = center + point.x * radius, y = center + point.y * radius;
+        if (index === 0) context.moveTo(x, y);
+        else context.lineTo(x, y);
+    });
+    if (close) context.closePath();
+}
+
+function drawObservationSwath(context, pass, center, radius) {
+    for (const slice of pass.swath) {
+        traceObservation(context, slice.points, center, radius, true);
+        context.fillStyle = `rgba(139, 234, 209, ${slice.opacity * 0.22})`;
+        context.fill();
+    }
+    traceObservation(context, pass.edge, center, radius);
+    context.strokeStyle = `rgba(173, 244, 222, ${pass.opacity * 0.65})`;
+    context.lineWidth = 1;
+    context.stroke();
+}
+
+function drawObservationBeam(context, pass, center, radius) {
+    const x = center + pass.satellite.x * radius;
+    const y = center + pass.satellite.y * radius;
+    const beam = context.createLinearGradient(x, y,
+        center + pass.ground.x * radius, center + pass.ground.y * radius);
+    beam.addColorStop(0, `rgba(148, 221, 202, ${pass.opacity * 0.05})`);
+    beam.addColorStop(1, `rgba(148, 221, 202, ${pass.opacity * 0.2})`);
+    traceObservation(context, [pass.satellite, ...pass.edge], center, radius, true);
+    context.fillStyle = beam;
+    context.fill();
+}
+
+function drawGlobe(context, size, seconds, pointer, showObservation) {
     const center = size / 2;
     const radius = size * 0.33;
+    const passes = showObservation ? ORBITS.map(orbit => observationPass(orbit, seconds)).filter(Boolean) : [];
     context.clearRect(0, 0, size, size);
     const glow = context.createRadialGradient(center, center, radius * 0.95, center, center, radius * 1.18);
     glow.addColorStop(0, 'rgba(91, 177, 175, 0.13)');
@@ -109,6 +139,7 @@ function drawGlobe(context, size, seconds, pointer) {
     context.beginPath(); path(land);
     context.fillStyle = landColor; context.fill();
     context.strokeStyle = 'rgba(116, 212, 175, 0.35)'; context.lineWidth = 0.65; context.stroke();
+    passes.forEach(pass => drawObservationSwath(context, pass, center, radius));
     const shade = context.createLinearGradient(center - radius, center - radius * 0.3, center + radius, center + radius * 0.6);
     shade.addColorStop(0, 'rgba(172, 211, 210, 0.025)');
     shade.addColorStop(0.55, 'rgba(3, 12, 24, 0.08)'); shade.addColorStop(1, 'rgba(3, 12, 24, 0.65)');
@@ -116,6 +147,7 @@ function drawGlobe(context, size, seconds, pointer) {
     context.restore();
     context.beginPath(); context.arc(center, center, radius, 0, TAU);
     context.strokeStyle = 'rgba(117, 197, 190, 0.32)'; context.lineWidth = 1; context.stroke();
+    passes.forEach(pass => drawObservationBeam(context, pass, center, radius));
     ORBITS.forEach(orbit => drawOrbit(context, orbit, center, radius, true, seconds));
 }
 
@@ -169,7 +201,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         }
         drawStars(starsContext, stars, width, height, elapsed / 1000, pointer, animate);
         if (visibility > 0.001 && (globeDirty || elapsed - lastGlobePaint >= 100)) {
-            drawGlobe(globeContext, globeSize, elapsed / 1000, pointer);
+            drawGlobe(globeContext, globeSize, elapsed / 1000, pointer, !compact() && !reducedQuery.matches);
             lastGlobePaint = elapsed; globeDirty = false;
         }
         globeCanvas.style.transform = `translate3d(${pointer.x * 6}px, ${pointer.y * 4}px, 0)`;

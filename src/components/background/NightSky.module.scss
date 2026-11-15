@@ -24,25 +24,6 @@
   bottom: clamp(-5rem, -6vh, -2rem);
   transition: opacity 300ms ease;
 }
-.motionControl {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  background: rgba(17, 23, 33, 0.8);
-  color: #b7c9d6;
-  opacity: 0.65;
-  cursor: pointer;
-  transition: opacity 160ms ease;
-  &:hover, &:focus-visible { opacity: 1; }
-  svg { width: 1.2rem; height: 1.2rem; }
-}
 @media (max-width: 48rem) {
   .globe { width: 20rem; right: -7rem; bottom: 5rem; }
 }

@@ -15,6 +15,13 @@ La build non richiede strumenti per le immagini. Per rigenerarli dal PNG
 originale usare `python3 scripts/generate-portrait.py` con Pillow 11.3.0
 e supporto WebP, poi verificare e versionare le immagini prodotte.
 
+Gli sfondi decorativi sono disegnati in Canvas con risorse locali: Terra e
+satelliti nel tema scuro, distretto portuale energetico nel tema chiaro.
+Le scene si caricano separatamente dopo l'inizializzazione del tema e si
+fermano fuori dalla Home, con scheda nascosta o tramite il pulsante di pausa.
+Su dispositivi touch e con movimento ridotto restano statiche. La pausa viene
+mantenuta quando si cambia tema; l'animazione della mano e' indipendente.
+
 ## Ambiente e installazione
 
 Usare Node **22.23.5** e npm **10.9.9**, inclusi nella versione Node indicata.

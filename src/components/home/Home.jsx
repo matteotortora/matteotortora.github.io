@@ -29,7 +29,7 @@ export default function Home({ innerRef }) {
                         <EmojiBullet key={index} emoji={bio.emoji} text={bio.text} link={bio.link} />
                     ))}
                 </ul>
-                <Box display="flex" gap="1.5rem" justifyContent="center" fontSize={{ xs: '2rem', md: '2.5rem' }}>
+                <Box display="flex" gap="1.5rem" justifyContent={{ xs: 'center', md: 'flex-start' }} fontSize={{ xs: '2rem', md: '2.5rem' }}>
                     {info.socials.map((social, index) => (
                         <SocialIcon key={index} link={social.link} image={social.image} label={social.label} />
                     ))}

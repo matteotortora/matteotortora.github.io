@@ -1,0 +1,26 @@
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 95% 82%, rgba(103, 155, 143, 0.09), transparent 43%),
+    radial-gradient(ellipse at 94% 48%, rgba(212, 185, 113, 0.055), transparent 32%);
+  animation: reveal 800ms ease both;
+}
+.canvas {
+  position: absolute;
+  width: clamp(32rem, 46vw, 48rem);
+  aspect-ratio: 4 / 3;
+  right: -3rem;
+  bottom: clamp(-1.5rem, -2vh, -0.25rem);
+  transition: opacity 300ms ease;
+}
+@media (max-width: 89.99rem) {
+  .canvas { width: clamp(22rem, 36vw, 34rem); right: -1.5rem; }
+}
+@media (max-width: 48rem) {
+  .canvas { width: 22rem; right: -1.5rem; bottom: 2rem; }
+}
+@keyframes reveal { from { opacity: 0; } to { opacity: 1; } }
