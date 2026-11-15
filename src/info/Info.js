@@ -38,17 +38,17 @@ export const info = {
         },
         {
             link: "https://scholar.google.com/citations?user=3WpZse0AAAAJ&hl=it&oi=ao",
-            icon: "fa fa-graduation-cap",
+            image: "/scholar.svg",
             label: 'scholar'
         },
         {
             link: "https://github.com/matteotortora",
-            icon: "fa fa-github",
+            image: "/github.svg",
             label: 'github'
         },
         {
             link: "https://www.linkedin.com/in/matteotortora/",
-            icon: "fa fa-linkedin",
+            image: "/linkedin.svg",
             label: 'linkedin'
         },
 

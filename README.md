@@ -103,7 +103,9 @@ sito accademico di Matteo Tortora. Il README originale consente di spostare
 il credito dal footer al README, mantenendo un collegamento al profilo
 dell'autrice. L'attribuzione viene conservata qui.
 
-L'icona ORCID proviene da
-[Font Awesome Free](https://github.com/FortAwesome/Font-Awesome/blob/7.x/svgs/brands/orcid.svg),
-copyright Fonticons, Inc., distribuita con licenza
+Le icone ORCID, GitHub, LinkedIn e il cappello accademico usato per Google Scholar
+provengono da [Font Awesome Free 7.3.1](https://github.com/FortAwesome/Font-Awesome/tree/7.3.1/svgs),
+copyright Fonticons, Inc., e sono distribuite con licenza
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Gli SVG sono inclusi in `public/`, insieme alla licenza originale
+`font-awesome-LICENSE.txt`; non viene caricato Font Awesome da CDN.

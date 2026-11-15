@@ -31,7 +31,7 @@ export default function Home({ innerRef }) {
                 </ul>
                 <Box display="flex" gap="1.5rem" justifyContent="center" fontSize={{ xs: '2rem', md: '2.5rem' }}>
                     {info.socials.map((social, index) => (
-                        <SocialIcon key={index} link={social.link} icon={social.icon} image={social.image} label={social.label} />
+                        <SocialIcon key={index} link={social.link} image={social.image} label={social.label} />
                     ))}
                 </Box>
             </div>

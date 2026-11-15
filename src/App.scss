@@ -100,11 +100,8 @@ ul {
     min-height: 2.75rem;
     transition: color 200ms ease;
 
-    i { color: inherit; transition: color 200ms ease; }
-
     &:hover, &:focus-visible {
         color: var(--social-hover);
-        i { color: var(--social-hover); }
     }
 }
 
