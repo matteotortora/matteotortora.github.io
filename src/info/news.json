@@ -1,5 +1,28 @@
 [
   {
+    "id": "bibm-2026-two-papers",
+    "date": "2026-11",
+    "emoji": "⚛️",
+    "content": [
+      "We will present two papers, ",
+      {
+        "text": "Hybrid Quantum–Classical Uncertainty Calibration for Flow Matching-Based Low-Dose CT Denoising",
+        "italic": true
+      },
+      " and ",
+      {
+        "text": "Scalable Time-Averaged Quantum Walks for Disease Gene Prioritization on Multiplex Biological Networks",
+        "italic": true
+      },
+      ", at ",
+      {
+        "text": "IEEE BIBM 2026",
+        "url": "https://www3.cs.stonybrook.edu/~bibm2026/home.html"
+      },
+      " in Dallas, USA (1–4 December)."
+    ]
+  },
+  {
     "id": "cbms-2027-program-chair",
     "date": "2026-11",
     "emoji": "🎓",
