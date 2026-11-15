@@ -24,7 +24,7 @@
     "predeploy": "npm run check",
     "deploy": "gh-pages -b master -d build",
     "start": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-site.mjs",
     "preview": "vite preview",
     "test": "node --test scripts/*.test.mjs",
     "check:security": "node scripts/check-security.mjs",

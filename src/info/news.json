@@ -1,5 +1,18 @@
 [
   {
+    "id": "cbms-2027-program-chair",
+    "date": "2026-11",
+    "emoji": "🎓",
+    "content": [
+      "I will serve as Program Chair of ",
+      {
+        "text": "IEEE CBMS 2027",
+        "url": "https://2027.cbms-conference.org/committees"
+      },
+      "."
+    ]
+  },
+  {
     "id": "sample-aware-publication",
     "date": "2026-11",
     "emoji": "📄",
@@ -46,6 +59,20 @@
         "url": "https://gridfm.org/"
       },
       " in Porto, Portugal (29–30 October)."
+    ]
+  },
+  {
+    "id": "discover-ai-editorial-board",
+    "date": "2026-09",
+    "emoji": "📚",
+    "content": [
+      "I joined the Editorial Board of ",
+      {
+        "text": "Discover Artificial Intelligence",
+        "url": "https://link.springer.com/journal/44163/editorial-board",
+        "italic": true
+      },
+      " (Springer Nature)."
     ]
   },
   {

@@ -3,12 +3,12 @@ import './App.scss';
 import BaseLayout from "./components/BaseLayout";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App({ Router = BrowserRouter, routerProps = {} }) {
    return (
       <div>
-         <BrowserRouter>
+         <Router {...routerProps}>
             <BaseLayout/>
-         </BrowserRouter>
+         </Router>
       </div>
    );
 }

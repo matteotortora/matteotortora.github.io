@@ -14,7 +14,7 @@ import NightSkyBoundary from './background/NightSkyBoundary';
 export default function BaseLayout() {
    const location = useLocation()
 
-   const [active, setActive] = useState(location.hash.slice(1) || (location.pathname === '/' ? 'home' : location.pathname.slice(1)));
+   const [active, setActive] = useState('home');
    const initialHash = useRef(location.hash);
    const refHome = useScrollObserver(setActive);
    const refNews = useScrollObserver(setActive);
@@ -23,9 +23,21 @@ export default function BaseLayout() {
    const refTeaching = useScrollObserver(setActive);
    const refServices = useScrollObserver(setActive);
    const refPublications = useScrollObserver(setActive);
-   const [darkMode, setDarkMode] = useState(() => initializeTheme() === 'dark');
+   const [darkMode, setDarkMode] = useState(false);
+   const [themeReady, setThemeReady] = useState(false);
 
-   useEffect(() => { applyTheme(darkMode ? 'dark' : 'light'); }, [darkMode]);
+   useEffect(() => {
+      setDarkMode(initializeTheme() === 'dark');
+      setThemeReady(true);
+   }, []);
+
+   useEffect(() => {
+      if (themeReady) applyTheme(darkMode ? 'dark' : 'light');
+   }, [darkMode, themeReady]);
+
+   useEffect(() => {
+      setActive(location.hash.slice(1) || (location.pathname === '/' ? 'home' : location.pathname.slice(1)));
+   }, [location.hash, location.pathname]);
 
    function toggleTheme() {
       const next = !darkMode;
@@ -36,14 +48,18 @@ export default function BaseLayout() {
 
    useEffect(() => {
       if (!singlePage || !initialHash.current) return;
-      const frame = requestAnimationFrame(() => {
+      let cancelled = false;
+      function alignInitialSection() {
+         if (cancelled || window.location.hash !== initialHash.current) return;
          const section = document.getElementById(initialHash.current.slice(1));
          if (section) {
             section.scrollIntoView({ behavior: 'instant', block: 'start' });
             section.focus({ preventScroll: true });
          }
-      });
-      return () => cancelAnimationFrame(frame);
+      }
+      const frame = requestAnimationFrame(alignInitialSection);
+      document.fonts?.ready.then(alignInitialSection);
+      return () => { cancelled = true; cancelAnimationFrame(frame); };
    }, []);
 
    return (
@@ -62,7 +78,7 @@ export default function BaseLayout() {
             <Grid item>
                <Box component={'footer'} display={'flex'} flexDirection={'column'} alignItems={'center'}
                   py={'1.5rem'} sx={{ opacity: 0.7 }} width={'100%'}>
-                  <p>&copy; {new Date().getFullYear()} {site.name}</p>
+                  <p suppressHydrationWarning>&copy; {new Date().getFullYear()} {site.name}</p>
                </Box>
             </Grid>
          </Grid>

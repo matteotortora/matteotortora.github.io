@@ -8,3 +8,14 @@
 .content a, .content a:visited { font-weight: 400; }
 .detail { display: block; margin-top: 0.2rem; }
 .years { font-weight: 500; }
+.review summary {
+  width: fit-content;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0;
+  font-weight: 700;
+  color: var(--link-color);
+  cursor: pointer;
+  &:hover { color: var(--link-hover); }
+}
+.reviewCount { font-weight: 400; }

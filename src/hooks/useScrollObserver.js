@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
  * @returns {funciton} ref
  */
 export default function useScrollObserver(action) {
-    const [viewportHeight, setViewportHeight] = useState(() => window.innerHeight);
+    const [viewportHeight, setViewportHeight] = useState(() => typeof window === 'undefined' ? 720 : window.innerHeight);
     useEffect(() => {
         const resize = () => setViewportHeight(window.innerHeight);
         window.addEventListener('resize', resize);

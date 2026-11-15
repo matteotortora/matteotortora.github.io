@@ -3,6 +3,18 @@
 Sito React pubblicato su [GitHub Pages](https://matteotortora.github.io).
 La toolchain usa Vite; l'output di produzione rimane nella cartella `build`.
 
+La build genera gia' nell'HTML tutte le sezioni del sito e le pubblicazioni.
+React si collega al contenuto esistente per attivare navigazione, tema,
+sfondo e ingrandimento delle figure. Il passaggio di prerendering avviene
+solo durante la build: GitHub Pages continua a servire file statici.
+I file intermedi vengono creati in `.local/` e rimossi automaticamente;
+la build verifica sezioni, pubblicazioni e collegamenti agli asset locali.
+
+Il ritratto usa tre WebP responsive (320, 640 e 960 pixel), gia' versionati.
+La build non richiede strumenti per le immagini. Per rigenerarli dal PNG
+originale usare `python3 scripts/generate-portrait.py` con Pillow 11.3.0
+e supporto WebP, poi verificare e versionare le immagini prodotte.
+
 ## Ambiente e installazione
 
 Usare Node **22.23.5** e npm **10.9.9**, inclusi nella versione Node indicata.

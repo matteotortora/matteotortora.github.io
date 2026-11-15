@@ -1,6 +1,8 @@
 import React from 'react';
 import Style from './Home.module.scss';
-import me from '../../img/self.png';
+import portrait320 from '../../img/portrait/matteo-tortora-320.webp';
+import portrait640 from '../../img/portrait/matteo-tortora-640.webp';
+import portrait960 from '../../img/portrait/matteo-tortora-960.webp';
 import classNames from 'classnames';
 import EmojiBullet from './EmojiBullet';
 import SocialIcon from './SocialIcon';
@@ -11,8 +13,11 @@ export default function Home({ innerRef }) {
     return (
         <section ref={innerRef} id="home" tabIndex={-1} aria-labelledby="home-title" className={Style.home}>
             <img className={classNames(Style.avatar, Style.shadowed)}
-                 alt={`${info.firstName} ${info.lastName}`} src={me}
-                 width="1084" height="1080" style={{ background: info.gradient }} />
+                 alt={`${info.firstName} ${info.lastName}`} src={portrait640}
+                 srcSet={`${portrait320} 320w, ${portrait640} 640w, ${portrait960} 960w`}
+                 sizes="(min-width: 68.75rem) 328px, (min-width: 56.25rem) calc(32vw - 24px), (min-width: 27.7rem) 264px, calc(65vw - 24px)"
+                 width="1084" height="1080" fetchPriority="high" decoding="async"
+                 style={{ background: info.gradient }} />
             <div className={Style.profile}>
                 <h1 id="home-title" className={Style.title}>
                     Hi, I'm <span style={{ background: info.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{info.firstName}</span>

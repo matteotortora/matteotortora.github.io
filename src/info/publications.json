@@ -136,7 +136,8 @@
         "label": "Code",
         "url": "https://github.com/arco-group/MATNet"
       }
-    ]
+    ],
+    "imageAlt": "Two time-series plots comparing observed and predicted photovoltaic generation for different daily production profiles."
   },
   {
     "id": "vmambax-2026",
@@ -159,7 +160,8 @@
         "label": "Code",
         "url": "https://github.com/arco-group/vMambaX"
       }
-    ]
+    ],
+    "imageAlt": "Context-gated PET–CT fusion module with parallel channel and spatial gates and residual connections."
   },
   {
     "id": "hybrid-quantum-forecasting-2026",
@@ -194,7 +196,8 @@
         "label": "Paper",
         "url": "https://doi.org/10.1109/CBMS65348.2025.00083"
       }
-    ]
+    ],
+    "imageAlt": "Lung CT segmentation examples comparing ground truth with DeepLabV3, U-Net, nnU-Net, MedSAM and Medical SAM 2 predictions."
   },
   {
     "id": "radiopathomics-2023",
@@ -209,6 +212,7 @@
         "label": "Paper",
         "url": "https://doi.org/10.1109/ACCESS.2023.3275126"
       }
-    ]
+    ],
+    "imageAlt": "RadioPathomics pipeline combining histopathology, radiological images and clinical variables through feature aggregation and late fusion of classifier outputs."
   }
 ]

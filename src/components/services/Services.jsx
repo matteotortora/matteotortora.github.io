@@ -33,8 +33,8 @@ export default function Services({ innerRef }) {
                             </ul>
                         </div>
                     ))}
-                    <div className={Style.group}>
-                        <h3 className={Style.heading}>Peer Review</h3>
+                    <details className={`${Style.group} ${Style.review}`}>
+                        <summary>Peer Review <span className={Style.reviewCount}>({service.peerReview.journals.length} journals · {service.peerReview.conferences.length} conferences)</span></summary>
                         <h4 className={Style.subheading}>International Journals</h4>
                         <ul className={Style.list}>
                             {service.peerReview.journals.map(name => <li key={name}>{name}</li>)}
@@ -43,7 +43,7 @@ export default function Services({ innerRef }) {
                         <ul className={Style.list}>
                             {service.peerReview.conferences.map(name => <li key={name}>{name}</li>)}
                         </ul>
-                    </div>
+                    </details>
                 </div>
             } />
         </PageSection>

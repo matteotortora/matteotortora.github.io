@@ -17,6 +17,22 @@
 .date { font-weight: 700; white-space: nowrap; }
 .text { margin: 0; min-width: 0; }
 .emoji { margin-right: 0.5em; }
+.archive {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  summary {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 2.75rem;
+    padding: 0.5rem 0;
+    font-weight: 700;
+    color: var(--link-color);
+    cursor: pointer;
+    &:hover { color: var(--link-hover); }
+  }
+  &[open] summary { margin-bottom: 1rem; }
+}
 @media (max-width: 47.999rem) {
   .card { padding: 1.25rem; }
   .item { grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; }
