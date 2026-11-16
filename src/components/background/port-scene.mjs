@@ -12,7 +12,7 @@ export function createPortScene({root,canvas,onControlVisibility}) {
     const pointer = {x:0,y:0}, target = {x:0,y:0};
     let visibility = 0, paused = false, disposed = false, frame = null;
     let elapsed = 0, lastTime = null, lastPaint = -Infinity, controlsVisible = false;
-    let width = 0, height = 0, pixelRatio = 0;
+    let width = 0, height = 0, pixelRatio = 0, resizeFrame = null;
     const compact = () => narrow.matches || !finePointer.matches || touchPointer.matches;
     const state = () => motionState({hidden:document.hidden,visibility,reducedMotion:reduced.matches,paused});
     function queue() {
@@ -83,7 +83,9 @@ export function createPortScene({root,canvas,onControlVisibility}) {
     window.visualViewport?.addEventListener('resize',resize);
     window.visualViewport?.addEventListener('scroll',measureHome);
     for (const query of [reduced,narrow,finePointer,touchPointer]) query.addEventListener('change',resize);
-    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => {
+        if (resizeFrame === null) resizeFrame = requestAnimationFrame(() => { resizeFrame = null; resize(); });
+    });
     observer?.observe(canvas);
     for (const target of [document.getElementById('home'),document.querySelector('[data-background-slot]')]) if (target) observer?.observe(target);
     resize();
@@ -92,6 +94,7 @@ export function createPortScene({root,canvas,onControlVisibility}) {
         dispose() {
             disposed = true;
             if (frame !== null) cancelAnimationFrame(frame);
+            if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
             observer?.disconnect(); painter.dispose();
             window.removeEventListener('resize',resize);
             window.removeEventListener('scroll',measureHome);

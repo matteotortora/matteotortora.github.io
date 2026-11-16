@@ -163,7 +163,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
     let width = 0, height = 0, globeSize = 0, stars = [];
     let visibility = 0, paused = false, frame = null, lastTime = null;
     let elapsed = 0, lastPaint = -Infinity, lastGlobePaint = -Infinity, globeDirty = true;
-    let controlsVisible = false, disposed = false;
+    let controlsVisible = false, disposed = false, resizeFrame = null;
     let globePixelRatio = 0;
     const pointer = { x: 0, y: 0 };
     const target = { x: 0, y: 0 };
@@ -255,7 +255,9 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
     window.visualViewport?.addEventListener('resize',resize);
     window.visualViewport?.addEventListener('scroll',measureHome);
     for (const query of [reducedQuery, compactQuery, pointerQuery, touchQuery]) query.addEventListener('change', resize);
-    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => {
+        if (resizeFrame === null) resizeFrame = requestAnimationFrame(() => { resizeFrame = null; resize(); });
+    });
     observer?.observe(globeCanvas);
     for (const target of [document.getElementById('home'),document.querySelector('[data-background-slot]')]) if (target) observer?.observe(target);
     resize();
@@ -265,6 +267,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         dispose() {
             disposed = true;
             if (frame !== null) cancelAnimationFrame(frame);
+            if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
             observer?.disconnect();
             window.removeEventListener('resize', resize);
             window.removeEventListener('scroll', measureHome);
