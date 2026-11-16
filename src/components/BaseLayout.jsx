@@ -3,6 +3,7 @@ import Style from './BaseLayout.module.scss'
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MultiPageRoutes from './MultiPageRoutes';
 import { singlePage } from '../info/Info';
 import site from '../info/site.json';
@@ -26,6 +27,7 @@ export default function BaseLayout() {
    const [darkMode, setDarkMode] = useState(false);
    const [themeReady, setThemeReady] = useState(false);
    const [backgroundPaused, setBackgroundPaused] = useState(false);
+   const phoneViewport = useMediaQuery('(max-width: 41.999rem), (max-height: 31.249rem) and (any-pointer: coarse)', {noSsr: true});
 
    useEffect(() => {
       setDarkMode(initializeTheme() === 'dark');
@@ -66,7 +68,7 @@ export default function BaseLayout() {
    return (
       <Box className={Style.layout}>
          <a className="skip-link" href="#main-content">Skip to content</a>
-         {themeReady && <BackgroundSceneBoundary darkMode={darkMode} paused={backgroundPaused}
+         {themeReady && !phoneViewport && <BackgroundSceneBoundary darkMode={darkMode} paused={backgroundPaused}
             onTogglePause={() => setBackgroundPaused(value => !value)} />}
          <Grid container className={Style.content} display={'flex'} flexDirection={'column'} minHeight={'100vh'}
             justifyContent={'space-between'}>

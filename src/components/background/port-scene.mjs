@@ -14,7 +14,7 @@ export function createPortScene({root,canvas,onControlVisibility}) {
     let elapsed = 0, lastTime = null, lastPaint = -Infinity, controlsVisible = false;
     let width = 0, height = 0, pixelRatio = 0;
     const compact = () => narrow.matches || !finePointer.matches || touchPointer.matches;
-    const state = () => motionState({hidden:document.hidden,visibility,reducedMotion:reduced.matches,compact:compact(),paused});
+    const state = () => motionState({hidden:document.hidden,visibility,reducedMotion:reduced.matches,paused});
     function queue() {
         if (frame === null && !disposed && !document.hidden) frame = requestAnimationFrame(tick);
     }
@@ -50,7 +50,7 @@ export function createPortScene({root,canvas,onControlVisibility}) {
         frame = null;
         const current = state();
         root.dataset.motion = current;
-        controls(!compact() && !reduced.matches && visibility > 0.001 && !document.hidden);
+        controls(!reduced.matches && visibility > 0.001 && !document.hidden);
         if (current === 'running') {
             if (lastTime !== null) elapsed += Math.min(now-lastTime,120);
             lastTime = now;
@@ -69,7 +69,7 @@ export function createPortScene({root,canvas,onControlVisibility}) {
         } else queue();
     }
     function move(event) {
-        if (state() !== 'running' || event.pointerType === 'touch') return;
+        if (state() !== 'running' || compact() || event.pointerType === 'touch') return;
         target.x = Math.max(-1,Math.min(1,(event.clientX/window.innerWidth-0.5)*2));
         target.y = Math.max(-1,Math.min(1,(event.clientY/window.innerHeight-0.5)*2));
     }

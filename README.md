@@ -19,10 +19,12 @@ Gli sfondi decorativi sono disegnati in Canvas con risorse locali: Terra e
 satelliti nel tema scuro, distretto portuale energetico nel tema chiaro.
 Le scene si caricano separatamente dopo l'inizializzazione del tema e si
 fermano fuori dalla Home, con scheda nascosta o tramite il pulsante di pausa.
-Su dispositivi touch e con movimento ridotto restano statiche. La pausa viene
-mantenuta quando si cambia tema; l'animazione della mano e' indipendente.
-Su mobile e tablet le illustrazioni occupano uno spazio dedicato nella Home,
-separato dalla biografia; posizione e dimensioni seguono quel riquadro durante
+Sui telefoni, anche in orizzontale, le scene non vengono caricate e non occupano
+spazio nella Home. Su tablet e desktop sono animate; con movimento ridotto
+restano statiche. La pausa viene mantenuta quando si cambia tema; l'animazione
+della mano e' indipendente.
+Su tablet le illustrazioni occupano uno spazio dedicato nella Home a destra,
+sotto la biografia; posizione e dimensioni seguono quel riquadro durante
 scorrimento, rotazione e ridimensionamento del viewport.
 
 ## Ambiente e installazione

@@ -169,7 +169,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
     const target = { x: 0, y: 0 };
     const compact = () => compactQuery.matches || !pointerQuery.matches || touchQuery.matches;
     const state = () => motionState({
-        hidden: document.hidden, visibility, reducedMotion: reducedQuery.matches, compact: compact(), paused,
+        hidden: document.hidden, visibility, reducedMotion: reducedQuery.matches, paused,
     });
 
     function queue() {
@@ -212,7 +212,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         }
         drawStars(starsContext, stars, width, height, elapsed / 1000, pointer, animate);
         if (visibility > 0.001 && (globeDirty || elapsed - lastGlobePaint >= 100)) {
-            drawGlobe(globeContext, globeSize, elapsed / 1000, pointer, !compact() && !reducedQuery.matches);
+            drawGlobe(globeContext, globeSize, elapsed / 1000, pointer, !reducedQuery.matches);
             lastGlobePaint = elapsed; globeDirty = false;
         }
         globeCanvas.style.transform = `translate3d(${pointer.x * 6}px, ${pointer.y * 4}px, 0)`;
@@ -221,7 +221,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         frame = null;
         const current = state();
         if (root.dataset.motion !== current) root.dataset.motion = current;
-        updateControls(!compact() && !reducedQuery.matches && visibility > 0.001 && !document.hidden);
+        updateControls(!reducedQuery.matches && visibility > 0.001 && !document.hidden);
         if (current === 'running') {
             if (lastTime !== null) elapsed += Math.min(now - lastTime, 120);
             lastTime = now;
@@ -240,7 +240,7 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         } else queue();
     }
     function move(event) {
-        if (state() !== 'running' || event.pointerType === 'touch') return;
+        if (state() !== 'running' || compact() || event.pointerType === 'touch') return;
         target.x = (event.clientX / width - 0.5) * 2;
         target.y = (event.clientY / height - 0.5) * 2;
     }

@@ -9,10 +9,11 @@ test('background motion requires a visible home, an active tab and permission to
     const allowed = { hidden: false, visibility: 1, reducedMotion: false, compact: false, paused: false };
     assert.equal(motionState(allowed), 'running');
     for (const restriction of [
-        { hidden: true }, { visibility: 0 }, { reducedMotion: true }, { compact: true }, { paused: true },
+        { hidden: true }, { visibility: 0 }, { reducedMotion: true }, { paused: true },
     ]) assert.notEqual(motionState({ ...allowed, ...restriction }), 'running');
     assert.equal(motionState({ ...allowed, paused: true }), 'paused');
     assert.equal(motionState({ ...allowed, reducedMotion: true }), 'reduced');
+    assert.equal(motionState({ ...allowed, compact: true }), 'running', 'Touch and narrow layouts must still animate.');
 });
 
 test('the globe fades out before the home passes underneath the fixed navigation', () => {
