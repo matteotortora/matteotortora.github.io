@@ -2,6 +2,7 @@ import { geoGraticule, geoOrthographic, geoPath } from 'd3-geo';
 import land from '../../data/earth-land.json';
 import { ORBITS, homeVisibility, motionState } from './scene-settings.mjs';
 import { observationPass } from './observation-pass.mjs';
+import { placeSceneCanvas, inlineSceneVisibility } from './scene-placement.mjs';
 
 const TAU = Math.PI * 2;
 const GRATICULE = geoGraticule().step([30, 30]).precision(6)();
@@ -156,15 +157,17 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
     const globeContext = globeCanvas.getContext('2d');
     if (!starsContext || !globeContext) return { setPaused() {}, dispose() {} };
     const reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const compactQuery = window.matchMedia('(max-width: 48rem)');
+    const compactQuery = window.matchMedia('(max-width: 56.249rem)');
     const pointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const touchQuery = window.matchMedia('(any-pointer: coarse)');
     let width = 0, height = 0, globeSize = 0, stars = [];
     let visibility = 0, paused = false, frame = null, lastTime = null;
     let elapsed = 0, lastPaint = -Infinity, lastGlobePaint = -Infinity, globeDirty = true;
     let controlsVisible = false, disposed = false;
+    let globePixelRatio = 0;
     const pointer = { x: 0, y: 0 };
     const target = { x: 0, y: 0 };
-    const compact = () => compactQuery.matches || !pointerQuery.matches;
+    const compact = () => compactQuery.matches || !pointerQuery.matches || touchQuery.matches;
     const state = () => motionState({
         hidden: document.hidden, visibility, reducedMotion: reducedQuery.matches, compact: compact(), paused,
     });
@@ -176,20 +179,28 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
         if (value !== controlsVisible) { controlsVisible = value; onControlVisibility(value); }
     }
     function measureHome() {
+        const placement = placeSceneCanvas(globeCanvas,root,1);
+        const ratio = Math.min(window.devicePixelRatio || 1,1.5);
+        if (placement.width !== globeSize || ratio !== globePixelRatio) {
+            globeSize = placement.width; globePixelRatio = ratio;
+            globeCanvas.width = Math.max(1,Math.round(globeSize*ratio));
+            globeCanvas.height = Math.max(1,Math.round(globeSize*ratio));
+            globeContext.setTransform(ratio,0,0,ratio,0,0);
+            globeDirty = true;
+        }
         const home = document.getElementById('home');
         const headerHeight = document.querySelector('header')?.getBoundingClientRect().height || 72;
-        visibility = homeVisibility(home?.getBoundingClientRect(), window.innerHeight, headerHeight);
-        globeCanvas.style.opacity = String(visibility * (compact() ? 0.32 : 0.8));
+        visibility = placement.inline ? inlineSceneVisibility(placement.region,window.innerHeight,headerHeight) :
+            homeVisibility(home?.getBoundingClientRect(), window.innerHeight, headerHeight);
+        globeCanvas.style.opacity = String(visibility * (placement.inline ? 0.85 : compact() ? 0.32 : 0.8));
         queue();
     }
     function resize() {
         width = window.innerWidth; height = window.innerHeight;
         const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-        globeSize = globeCanvas.getBoundingClientRect().width;
         starsCanvas.width = Math.round(width * ratio); starsCanvas.height = Math.round(height * ratio);
-        globeCanvas.width = Math.round(globeSize * ratio); globeCanvas.height = Math.round(globeSize * ratio);
         starsContext.setTransform(ratio, 0, 0, ratio, 0, 0);
-        globeContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+        if (compact() || reducedQuery.matches) { pointer.x = 0; pointer.y = 0; target.x = 0; target.y = 0; }
         stars = starField(width, height, compact());
         globeDirty = true; lastPaint = -Infinity;
         measureHome();
@@ -241,9 +252,12 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
     window.addEventListener('pointermove', move, { passive: true });
     window.addEventListener('pointerout', leave);
     document.addEventListener('visibilitychange', visibilityChanged);
-    for (const query of [reducedQuery, compactQuery, pointerQuery]) query.addEventListener('change', resize);
+    window.visualViewport?.addEventListener('resize',resize);
+    window.visualViewport?.addEventListener('scroll',measureHome);
+    for (const query of [reducedQuery, compactQuery, pointerQuery, touchQuery]) query.addEventListener('change', resize);
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
     observer?.observe(globeCanvas);
+    for (const target of [document.getElementById('home'),document.querySelector('[data-background-slot]')]) if (target) observer?.observe(target);
     resize();
 
     return {
@@ -258,7 +272,9 @@ export function createOrbitalScene({ root, starsCanvas, globeCanvas, onControlVi
             window.removeEventListener('pointermove', move);
             window.removeEventListener('pointerout', leave);
             document.removeEventListener('visibilitychange', visibilityChanged);
-            for (const query of [reducedQuery, compactQuery, pointerQuery]) query.removeEventListener('change', resize);
+            window.visualViewport?.removeEventListener('resize',resize);
+            window.visualViewport?.removeEventListener('scroll',measureHome);
+            for (const query of [reducedQuery, compactQuery, pointerQuery, touchQuery]) query.removeEventListener('change', resize);
         },
     };
 }

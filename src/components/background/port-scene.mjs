@@ -1,16 +1,19 @@
 import { homeVisibility, motionState } from './scene-settings.mjs';
 import { createPortPainter } from './port-renderer.mjs';
+import { placeSceneCanvas, inlineSceneVisibility } from './scene-placement.mjs';
 
 export function createPortScene({root,canvas,onControlVisibility}) {
     const painter = createPortPainter(canvas);
     if (!painter) return { setPaused() {}, dispose() {} };
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const narrow = window.matchMedia('(max-width: 48rem)');
+    const narrow = window.matchMedia('(max-width: 56.249rem)');
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const touchPointer = window.matchMedia('(any-pointer: coarse)');
     const pointer = {x:0,y:0}, target = {x:0,y:0};
     let visibility = 0, paused = false, disposed = false, frame = null;
     let elapsed = 0, lastTime = null, lastPaint = -Infinity, controlsVisible = false;
-    const compact = () => narrow.matches || !finePointer.matches;
+    let width = 0, height = 0, pixelRatio = 0;
+    const compact = () => narrow.matches || !finePointer.matches || touchPointer.matches;
     const state = () => motionState({hidden:document.hidden,visibility,reducedMotion:reduced.matches,compact:compact(),paused});
     function queue() {
         if (frame === null && !disposed && !document.hidden) frame = requestAnimationFrame(tick);
@@ -19,15 +22,21 @@ export function createPortScene({root,canvas,onControlVisibility}) {
         if (controlsVisible !== value) { controlsVisible = value; onControlVisibility(value); }
     }
     function measureHome() {
+        const placement = placeSceneCanvas(canvas,root,4/3);
+        const nextRatio = Math.min(window.devicePixelRatio || 1,1.5);
+        if (placement.width !== width || placement.height !== height || nextRatio !== pixelRatio) {
+            width = placement.width; height = placement.height; pixelRatio = nextRatio;
+            painter.resize(Math.max(1,width),Math.max(1,height),pixelRatio);
+            lastPaint = -Infinity;
+        }
         const home = document.getElementById('home');
         const header = document.querySelector('header')?.getBoundingClientRect().height || 72;
-        visibility = homeVisibility(home?.getBoundingClientRect(),window.innerHeight,header);
-        canvas.style.opacity = String(visibility*(compact() ? 0.2 : 1));
+        visibility = placement.inline ? inlineSceneVisibility(placement.region,window.innerHeight,header) :
+            homeVisibility(home?.getBoundingClientRect(),window.innerHeight,header);
+        canvas.style.opacity = String(visibility*(placement.inline ? 0.95 : compact() ? 0.2 : 1));
         queue();
     }
     function resize() {
-        const bounds = canvas.getBoundingClientRect();
-        painter.resize(Math.max(1,bounds.width),Math.max(1,bounds.height),Math.min(window.devicePixelRatio || 1,1.5));
         if (compact() || reduced.matches) { pointer.x = 0; pointer.y = 0; target.x = 0; target.y = 0; }
         lastPaint = -Infinity;
         measureHome();
@@ -71,9 +80,12 @@ export function createPortScene({root,canvas,onControlVisibility}) {
     window.addEventListener('pointermove',move,{passive:true});
     window.addEventListener('pointerout',leave);
     document.addEventListener('visibilitychange',visibilityChanged);
-    for (const query of [reduced,narrow,finePointer]) query.addEventListener('change',resize);
+    window.visualViewport?.addEventListener('resize',resize);
+    window.visualViewport?.addEventListener('scroll',measureHome);
+    for (const query of [reduced,narrow,finePointer,touchPointer]) query.addEventListener('change',resize);
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(resize);
     observer?.observe(canvas);
+    for (const target of [document.getElementById('home'),document.querySelector('[data-background-slot]')]) if (target) observer?.observe(target);
     resize();
     return {
         setPaused(value) { paused = value; lastTime = null; queue(); },
@@ -87,7 +99,9 @@ export function createPortScene({root,canvas,onControlVisibility}) {
             window.removeEventListener('pointermove',move);
             window.removeEventListener('pointerout',leave);
             document.removeEventListener('visibilitychange',visibilityChanged);
-            for (const query of [reduced,narrow,finePointer]) query.removeEventListener('change',resize);
+            window.visualViewport?.removeEventListener('resize',resize);
+            window.visualViewport?.removeEventListener('scroll',measureHome);
+            for (const query of [reduced,narrow,finePointer,touchPointer]) query.removeEventListener('change',resize);
         },
     };
 }

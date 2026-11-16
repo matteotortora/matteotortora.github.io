@@ -21,6 +21,9 @@ Le scene si caricano separatamente dopo l'inizializzazione del tema e si
 fermano fuori dalla Home, con scheda nascosta o tramite il pulsante di pausa.
 Su dispositivi touch e con movimento ridotto restano statiche. La pausa viene
 mantenuta quando si cambia tema; l'animazione della mano e' indipendente.
+Su mobile e tablet le illustrazioni occupano uno spazio dedicato nella Home,
+separato dalla biografia; posizione e dimensioni seguono quel riquadro durante
+scorrimento, rotazione e ridimensionamento del viewport.
 
 ## Ambiente e installazione
 
