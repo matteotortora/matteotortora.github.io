@@ -24,5 +24,7 @@
   bottom: clamp(-5rem, -6vh, -2rem);
   transition: opacity 300ms ease;
 }
-.scene[data-layout='inline']::after { background: none; }
+@media (max-width: 48rem) {
+  .globe { width: 20rem; right: -7rem; bottom: 5rem; }
+}
 @keyframes reveal { from { opacity: 0; } to { opacity: 1; } }

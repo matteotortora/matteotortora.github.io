@@ -20,5 +20,7 @@
 @media (max-width: 89.99rem) {
   .canvas { width: clamp(22rem, 36vw, 34rem); right: -1.5rem; }
 }
-.scene[data-layout='inline'] { background: none; }
+@media (max-width: 48rem) {
+  .canvas { width: 22rem; right: -1.5rem; bottom: 2rem; }
+}
 @keyframes reveal { from { opacity: 0; } to { opacity: 1; } }

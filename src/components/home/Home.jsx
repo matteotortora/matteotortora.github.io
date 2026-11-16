@@ -35,7 +35,6 @@ export default function Home({ innerRef }) {
                     ))}
                 </Box>
             </div>
-            <div className={Style.backgroundSlot} data-background-slot="" aria-hidden="true"/>
         </section>
     );
 }
